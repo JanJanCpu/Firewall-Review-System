@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firewall Review - Analysis Results</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="results-container">
+        <h2>Analysis Results</h2>
+        <p style="color: #8b949e; margin-bottom: 2rem;">Review flagged rules and choose actions. Changes sync with the backend report.</p>
+
+        <div class="tally-board">
+            <div class="tally-card kept">
+                <span class="tally-label">RULES KEPT</span>
+                <span id="keptCount" class="tally-value">0</span>
+            </div>
+            <div class="tally-card removed">
+                <span class="tally-label">RULES REMOVED</span>
+                <span id="removedCount" class="tally-value">0</span>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <table class="cyber-table">
+                <thead>
+                    <tr>
+                        <th>Rule ID</th>
+                        <th>Issue Detected</th>
+                        <th>Framework Violation</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="rulesTableBody">
+                    <tr data-rule-id="101">
+                        <td><span class="rule-id">#101</span></td>
+                        <td><span class="badge danger">Telnet Port 23 Open</span></td>
+                        <td style="color: #8b949e;">NIST SP 800-53 (AC-17)</td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="btn-action keep-btn" onclick="handleAction(this, 'keep')">Keep</button>
+                                <button class="btn-action remove-btn" onclick="handleAction(this, 'remove')">Remove</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr data-rule-id="102">
+                        <td><span class="rule-id">#102</span></td>
+                        <td><span class="badge warn">Shadow Rule (Hit Count 0)</span></td>
+                        <td style="color: #8b949e;">ISO/IEC 27001 (A.12.1.2)</td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="btn-action keep-btn" onclick="handleAction(this, 'keep')">Keep</button>
+                                <button class="btn-action remove-btn" onclick="handleAction(this, 'remove')">Remove</button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="uploadscript.js"></script>
+</body>
+</html>
