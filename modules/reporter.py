@@ -62,7 +62,7 @@ def generate_summary(findings_list):
     return {
         'total_risks': total_risks,
         'status': system_status,
-        'average_severity_score': average_score,
+        'average_severity_score': average_score, # new return value
         'severity_count': severity_count,
         'common_issues': issue_count,
         'rule_needing_action': action_items
